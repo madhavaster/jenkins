@@ -23,9 +23,9 @@ pipeline {
               }
             }
         }
-        stage('How are you?') {
+        stage('Check docker version') {
             steps {
-                echo 'How are you?'
+               sh 'docker version'
             }
         }
         stage ('SAST'){
