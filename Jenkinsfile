@@ -27,8 +27,14 @@ pipeline {
         stage('Check docker image') {
             steps {
                sh '''docker image ls
-docker image build . -f Dockerfile -t madhavaagrisutra/devops:latest
-docker image ls'''
+                     docker image build . -f Dockerfile -t madhavaagrisutra/devops:latest
+                     docker image ls'''
+            }
+        }
+         stage('Push docker image') {
+            steps {
+               sh '''docker login -u ${dockeruser} -p ${dockerpassword}
+                    docker push madhavaagrisutra/devops:latest'''
             }
         }
         stage ('SAST'){
