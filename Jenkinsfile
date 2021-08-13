@@ -24,9 +24,11 @@ pipeline {
               }
             }
         }
-        stage('Check docker version') {
+        stage('Check docker image') {
             steps {
-               sh 'docker version'
+               sh '''docker image ls
+docker image build . -f Dockerfile -t madhavaagrisutra/devops:latest
+docker image ls'''
             }
         }
         stage ('SAST'){
