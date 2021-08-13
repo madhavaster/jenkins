@@ -2,6 +2,7 @@ pipeline {
     agent {
       label 'linux'
     }
+    
     tools {
       maven 'mvn_3.8.1'
         dockerTool 'docker'
@@ -25,7 +26,7 @@ pipeline {
         }
         stage('Check docker version') {
             steps {
-               sh 'docker version'
+               sh 'docker --version'
             }
         }
         stage ('SAST'){
