@@ -33,8 +33,7 @@ pipeline {
         }
          stage('Push docker image') {
             steps {
-               sh '''docker login -u ${dockeruser} -p ${dockerpassword}
-                    docker push madhavaagrisutra/devops:latest'''
+               sh 'docker push madhavaagrisutra/devops:latest'
             }
         }
         stage ('SAST'){
