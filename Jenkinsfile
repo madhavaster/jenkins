@@ -2,6 +2,9 @@ pipeline {
     agent {
       label 'linux'
     }
+    tools {
+      maven 'mvn_3.8.1'
+    }
 
     stages {
         stage('Git clone'){
