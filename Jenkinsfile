@@ -12,9 +12,9 @@ pipeline {
                git credentialsId: 'GITHUB-CREDS', url: 'https://github.com/kul-samples/java_sample_webapp.git'
             }
         }
-        stage('Hello') {
+        stage('Build package') {
             steps {
-                echo 'Hello World'
+              sh 'mvn clean package'
             }
         }
         stage('How are you?') {
